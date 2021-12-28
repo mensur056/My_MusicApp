@@ -9,6 +9,6 @@ class RootApp extends StatefulWidget {
 class _RootAppState extends State<RootApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(color: Colors.red,);
   }
 }
