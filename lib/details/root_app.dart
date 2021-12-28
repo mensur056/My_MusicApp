@@ -20,14 +20,16 @@ class _RootAppState extends State<RootApp> {
   }
 
   Widget BottomBar() {
+    List items = [Icons.home, Icons.book, Icons.search, Icons.settings];
     return Container(
       height: 80,
       decoration: BoxDecoration(color: black),
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
-        child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(4, (index) {
+          children: List.generate(items.length, (index) {
             return IconButton(
                 onPressed: () {
                   setState(() {
@@ -35,8 +37,8 @@ class _RootAppState extends State<RootApp> {
                   });
                 },
                 icon: Icon(
-                  Icons.home,
-                  color: white,
+                  items[index],
+                  color: activeTab == index ? primary : white,
                 ));
           }),
         ),
