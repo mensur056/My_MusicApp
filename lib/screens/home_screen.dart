@@ -101,11 +101,11 @@ class _HomeScreenState extends State<HomeScreen> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 30.0),
+                  padding: const EdgeInsets.only(left: 20.0),
                   child: Row(
                     children: List.generate(songs.length - 5, (index) {
                       return Padding(
-                        padding: EdgeInsets.only(right: 30),
+                        padding: EdgeInsets.only(right: 20),
                         child: GestureDetector(
                           onTap: () {},
                           child: Column(
@@ -131,6 +131,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                songs[index]['description'],
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.w600),
                               )
                             ],
