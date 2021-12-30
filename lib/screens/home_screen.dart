@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'Explore',
                 style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 30),
               ),
               Icon(Icons.list),
             ],
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 song_type_1[index],
                                 style: TextStyle(
-                                    color: Colors.grey, fontWeight: FontWeight.w600),
+                                    color: Colors.grey, fontWeight: FontWeight.w600,fontSize: 30),
                               )
                             ],
                           ),
