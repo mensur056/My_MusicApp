@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ? primary
                                           : Colors.grey,
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 30),
+                                      fontSize: 25),
                                 ),
                                 SizedBox(
                                   height: 2,
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 activeMenu1 == index
                                     ? Container(
                                         height: 3,
-                                        width: 15,
+                                        width: 30,
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -101,53 +101,179 @@ class _HomeScreenState extends State<HomeScreen> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                  padding: const EdgeInsets.only(left: 30.0),
                   child: Row(
-                    children: List.generate(songs.length - 5, (index) {
-                      return Padding(
-                        padding: EdgeInsets.only(right: 20),
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 160,
-                                width: 160,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        songs[index]['img'],
-                                      ),
-                                      fit: BoxFit.cover),
-                                  color: Colors.green,
-                                  borderRadius: BorderRadius.circular(10),
+                    children: List.generate(
+                      songs.length - 5,
+                      (index) {
+                        return Padding(
+                          padding: EdgeInsets.only(right: 30),
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 180,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                          songs[index]['img'],
+                                        ),
+                                        fit: BoxFit.cover),
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 18,
-                              ),
-                              Text(
-                                songs[index]['title'],
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                songs[index]['description'],
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600),
-                              )
-                            ],
+                                SizedBox(
+                                  height: 18,
+                                ),
+                                Text(
+                                  songs[index]['title'],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  child: Text(
+                                    songs[index]['description'],
+                                    maxLines: 1,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  width: 180,
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),SizedBox(height: 12,),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30.0, top: 20),
+                  child: Row(
+                    children: List.generate(
+                      song_type_1.length,
+                          (index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 25.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                activeMenu1 = index;
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                Text(
+                                  song_type_1[index],
+                                  style: TextStyle(
+                                      color: activeMenu1 == index
+                                          ? primary
+                                          : Colors.grey,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 25),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                activeMenu1 == index
+                                    ? Container(
+                                  height: 3,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.circular(5),
+                                      color: primary),
+                                )
+                                    : Container()
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: Row(
+                    children: List.generate(
+                      songs.length - 5,
+                          (index) {
+                        return Padding(
+                          padding: EdgeInsets.only(right: 30),
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 180,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                          songs[index]['img'],
+                                        ),
+                                        fit: BoxFit.cover),
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 18,
+                                ),
+                                Text(
+                                  songs[index]['title'],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  child: Text(
+                                    songs[index]['description'],
+                                    maxLines: 1,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  width: 180,
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
               )
