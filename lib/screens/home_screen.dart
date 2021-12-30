@@ -72,7 +72,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                           : Colors.grey,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 30),
-                                )
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                activeMenu1 == index
+                                    ? Container(
+                                        height: 3,
+                                        width: 15,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            color: primary),
+                                      )
+                                    : Container()
                               ],
                             ),
                           ),
