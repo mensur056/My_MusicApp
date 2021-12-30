@@ -16,6 +16,40 @@ class _RootAppState extends State<RootApp> {
     return Scaffold(
       backgroundColor: black,
       bottomNavigationBar: BottomBar(),
+      body: GetBody(),
+    );
+  }
+
+  Widget GetBody() {
+    return IndexedStack(
+      index: activeTab,
+      children: [
+        Center(
+          child: Text(
+            'Home',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),Center(
+          child: Text(
+            'Book',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),Center(
+          child: Text(
+            'Search',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),Center(
+          child: Text(
+            'Settings',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        )
+      ],
     );
   }
 
