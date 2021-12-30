@@ -98,26 +98,35 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 20,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30.0),
-                child: Row(
-                  children: List.generate(10, (index) {
-                    return Padding(
-                      padding: EdgeInsets.only(right: 30),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 180,
-                              width: 180,
-                              decoration: BoxDecoration(color: Colors.green),
-                            )
-                          ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: Row(
+                    children: List.generate(songs.length - 5, (index) {
+                      return Padding(
+                        padding: EdgeInsets.only(right: 30),
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 160,
+                                width: 160,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(songs[index]['img']),
+                                  ),
+                                  color: Colors.green,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+                  ),
                 ),
               )
             ],
