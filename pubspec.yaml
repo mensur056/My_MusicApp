@@ -25,6 +25,9 @@ dependencies:
     sdk: flutter
   flutter_svg: ^1.0.0
   cupertino_icons: ^1.0.2
+  flutter_icons: ^1.1.0
+  page_transition: "^1.1.7+6"
+  audioplayers:
 
 dev_dependencies:
   flutter_test:

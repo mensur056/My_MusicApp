@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_musicapp/constants.dart';
+import 'package:my_musicapp/json/songs_json.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -38,8 +39,25 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column( crossAxisAlignment: CrossAxisAlignment.start,
-            children: [],
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: List.generate(
+                  song_type_1.length,
+                  (index) {
+                    return Column(
+                      children: [
+                        Text(
+                          song_type_1[index],
+                          style: TextStyle(color: Colors.grey),
+                        )
+                      ],
+                    );
+                  },
+                ),
+              )
+            ],
           )
         ],
       ),
