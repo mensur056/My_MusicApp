@@ -115,11 +115,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 160,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage(songs[index]['img']),
-                                  ),
+                                      image: AssetImage(
+                                        songs[index]['img'],
+                                      ),
+                                      fit: BoxFit.cover),
                                   color: Colors.green,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 18,
+                              ),
+                              Text(
+                                songs[index]['title'],
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600),
                               )
                             ],
                           ),
