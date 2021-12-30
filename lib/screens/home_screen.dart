@@ -8,6 +8,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int activeMenu1 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,8 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text(
                 'Explore',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 30),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30),
               ),
               Icon(Icons.list),
             ],
@@ -42,23 +46,35 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SingleChildScrollView(scrollDirection: Axis.horizontal,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 30.0,top: 20),
+                  padding: const EdgeInsets.only(left: 30.0, top: 20),
                   child: Row(
                     children: List.generate(
                       song_type_1.length,
                       (index) {
                         return Padding(
                           padding: const EdgeInsets.only(right: 25.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                song_type_1[index],
-                                style: TextStyle(
-                                    color: Colors.grey, fontWeight: FontWeight.w600,fontSize: 30),
-                              )
-                            ],
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                activeMenu1 = index;
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                Text(
+                                  song_type_1[index],
+                                  style: TextStyle(
+                                      color: activeMenu1 == index
+                                          ? primary
+                                          : Colors.grey,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 30),
+                                )
+                              ],
+                            ),
                           ),
                         );
                       },
