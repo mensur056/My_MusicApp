@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_musicapp/constants.dart';
+import 'package:my_musicapp/screens/home_screen.dart';
 
 class RootApp extends StatefulWidget {
   const RootApp({Key? key}) : super(key: key);
@@ -24,25 +25,22 @@ class _RootAppState extends State<RootApp> {
     return IndexedStack(
       index: activeTab,
       children: [
+        HomeScreen(),
         Center(
-          child: Text(
-            'Home',
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-        ),Center(
           child: Text(
             'Book',
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           ),
-        ),Center(
+        ),
+        Center(
           child: Text(
             'Search',
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           ),
-        ),Center(
+        ),
+        Center(
           child: Text(
             'Settings',
             style: TextStyle(
