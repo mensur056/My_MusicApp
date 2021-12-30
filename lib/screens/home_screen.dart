@@ -42,19 +42,28 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: List.generate(
-                  song_type_1.length,
-                  (index) {
-                    return Column(
-                      children: [
-                        Text(
-                          song_type_1[index],
-                          style: TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    );
-                  },
+              SingleChildScrollView(scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 30.0,top: 20),
+                  child: Row(
+                    children: List.generate(
+                      song_type_1.length,
+                      (index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 25.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                song_type_1[index],
+                                style: TextStyle(
+                                    color: Colors.grey, fontWeight: FontWeight.w600),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ),
               )
             ],
