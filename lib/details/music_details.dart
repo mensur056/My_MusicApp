@@ -5,7 +5,7 @@ class MusicDetailPage extends StatefulWidget {
   final String description;
   final String img;
   final String songUrl;
-  final String color;
+  final Color color;
 
   const MusicDetailPage(
       {required this.title,

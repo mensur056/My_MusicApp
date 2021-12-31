@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_musicapp/constants.dart';
+import 'package:my_musicapp/details/music_details.dart';
 import 'package:my_musicapp/json/songs_json.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -85,8 +86,13 @@ class _AlbumPageState extends State<AlbumPage> {
                                   context,
                                   PageTransition(
                                       alignment: Alignment.bottomCenter,
-                                      child: AlbumPage(
-                                        song: songs[index],
+                                      child: MusicDetailPage(
+                                        title: songs[index]['title'],
+                                        color: songs[index]['color'],
+                                        img: songs[index]['img'],
+                                        description: songs[index]['description'],
+                                        songUrl: songs[index]['song_url'],
+
                                       ),
                                       type: PageTransitionType.scale));
                             },
@@ -168,7 +174,21 @@ class _AlbumPageState extends State<AlbumPage> {
                       padding: const EdgeInsets.only(
                           left: 30.0, right: 30, bottom: 10),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              PageTransition(
+                                  alignment: Alignment.bottomCenter,
+                                  child: MusicDetailPage(
+                                    title: widget.song['title'],
+                                    color:widget.song['color'],
+                                    img: widget.song['img'],
+                                    description: widget.song['description'],
+                                    songUrl: widget.song['song_url'],
+
+                                  ),
+                                  type: PageTransitionType.scale));
+                        },
                         child: Row(
                           children: [
                             Container(
