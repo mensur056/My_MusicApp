@@ -28,10 +28,33 @@ class _AlbumPageState extends State<AlbumPage> {
             children: [
               Container(
                 width: size.width,
-                height: 220,decoration: BoxDecoration(color: Colors.red
-              ),
+                height: 220,
+                decoration: BoxDecoration(color: primary),
               )
             ],
+          ),
+          SafeArea(
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                ), IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    Icons.more_vert_rounded,
+                    color: Colors.white,
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
