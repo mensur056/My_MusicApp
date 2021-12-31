@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int activeMenu1 = 0;
-  int activeMenu2 = 2;
+  int activeMenu2 = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -242,14 +242,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Padding(
                           padding: EdgeInsets.only(right: 30),
                           child: GestureDetector(
-                            onTap: () { Navigator.push(
-                                context,
-                                PageTransition(
-                                    alignment: Alignment.bottomCenter,
-                                    child: AlbumPage(
-                                      song: songs[index+5],
-                                    ),
-                                    type: PageTransitionType.scale));},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  PageTransition(
+                                      alignment: Alignment.bottomCenter,
+                                      child: AlbumPage(
+                                        song: songs[index + 5],
+                                      ),
+                                      type: PageTransitionType.scale));
+                            },
                             child: Column(
                               children: [
                                 Container(
@@ -261,7 +263,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                           songs[index + 5]['img'],
                                         ),
                                         fit: BoxFit.cover),
-                                    color: Colors.green,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),

@@ -71,13 +71,13 @@ class _AlbumPageState extends State<AlbumPage> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                  padding: const EdgeInsets.only(left: 10.0),
                   child: Row(
                     children: List.generate(
                       songs.length,
                       (index) {
                         return Padding(
-                          padding: EdgeInsets.only(right: 20),
+                          padding: EdgeInsets.only(right: 10),
                           child: GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -92,15 +92,14 @@ class _AlbumPageState extends State<AlbumPage> {
                             child: Column(
                               children: [
                                 Container(
-                                  height: 180,
-                                  width: 180,
+                                  height: 160,
+                                  width: 160,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
                                           songs[index]['img'],
                                         ),
                                         fit: BoxFit.cover),
-                                    color: Colors.green,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
@@ -119,8 +118,11 @@ class _AlbumPageState extends State<AlbumPage> {
                                 ),
                                 Container(
                                   child: Padding(
-                                    padding: const EdgeInsets.only(left:50,right: 50),
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    padding: const EdgeInsets.only(
+                                        left: 50, right: 50),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           songs[index]['song_count'],
@@ -154,6 +156,26 @@ class _AlbumPageState extends State<AlbumPage> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Column(
+                children: List.generate(10, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        left: 30.0, right: 30, bottom: 10),
+                    child: GestureDetector(
+                        onTap: () {},
+                        child: Row(
+                          children: [
+                            Container(
+                              width: (size.width - 60) * 077,
+                            )
+                          ],
+                        )),
+                  );
+                }),
+              )
             ],
           ),
           SafeArea(
