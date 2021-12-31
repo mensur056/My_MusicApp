@@ -174,6 +174,11 @@ class _AlbumPageState extends State<AlbumPage> {
                               width: (size.width - 60) * 0.77,
                               height: 50,
                               decoration: BoxDecoration(color: primary),
+                            ),
+                            Container(
+                              width: (size.width - 60) * 0.23,
+                              height: 50,
+                              decoration: BoxDecoration(color: white),
                             )
                           ],
                         ),
