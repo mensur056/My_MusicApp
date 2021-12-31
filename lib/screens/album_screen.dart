@@ -23,6 +23,7 @@ class _AlbumPageState extends State<AlbumPage> {
 
   Widget getBody() {
     var size = MediaQuery.of(context).size;
+    List songAlbum = widget.song['songs'];
     return SingleChildScrollView(
       child: Stack(
         children: [
@@ -161,7 +162,7 @@ class _AlbumPageState extends State<AlbumPage> {
               ),
               Column(
                 children: List.generate(
-                  10,
+                  songAlbum.length,
                   (index) {
                     return Padding(
                       padding: const EdgeInsets.only(
@@ -173,7 +174,10 @@ class _AlbumPageState extends State<AlbumPage> {
                             Container(
                               width: (size.width - 60) * 0.77,
                               height: 50,
-                              decoration: BoxDecoration(color: primary),
+                              child: Text(
+                                "${index+1}  "+songAlbum[index]['title'],
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                             Container(
                               width: (size.width - 60) * 0.23,
