@@ -160,21 +160,27 @@ class _AlbumPageState extends State<AlbumPage> {
                 height: 20,
               ),
               Column(
-                children: List.generate(10, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                        left: 30.0, right: 30, bottom: 10),
-                    child: GestureDetector(
+                children: List.generate(
+                  10,
+                  (index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                          left: 30.0, right: 30, bottom: 10),
+                      child: GestureDetector(
                         onTap: () {},
                         child: Row(
                           children: [
                             Container(
-                              width: (size.width - 60) * 077,
+                              width: (size.width - 60) * 0.77,
+                              height: 50,
+                              decoration: BoxDecoration(color: primary),
                             )
                           ],
-                        )),
-                  );
-                }),
+                        ),
+                      ),
+                    );
+                  },
+                ),
               )
             ],
           ),
