@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
 class MusicDetailPage extends StatefulWidget {
-  const MusicDetailPage({Key? key}) : super(key: key);
+  final String title;
+  final String description;
+  final String img;
+  final String songUrl;
+  final String color;
+
+  const MusicDetailPage(
+      {required this.title,
+      required this.description,
+      required this.img,
+      required this.songUrl,
+      required this.color});
 
   @override
   _MusicDetailPageState createState() => _MusicDetailPageState();
