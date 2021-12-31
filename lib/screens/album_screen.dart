@@ -182,25 +182,28 @@ class _AlbumPageState extends State<AlbumPage> {
                               width: (size.width - 60) * 0.23,
                               height: 50,
                               child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     songAlbum[index]['duration'],
                                     style: TextStyle(color: Colors.grey),
                                   ),
+                                  Container(
+                                    height: 25,
+                                    width: 25,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.grey),
+                                    child: Icon(
+                                      Icons.play_arrow,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
-                            Container(
-                              height: 25,
-                              width: 25,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey.withOpacity(0.8),
-                              ),
-                              child: Center(
-                                child: Icon(Icons.play_arrow),
-                              ),
-                            )
                           ],
                         ),
                       ),
