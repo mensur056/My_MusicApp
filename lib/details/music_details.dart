@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class MusicDetailPage extends StatefulWidget {
   final String title;
   final String description;
@@ -21,6 +23,19 @@ class MusicDetailPage extends StatefulWidget {
 class _MusicDetailPageState extends State<MusicDetailPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: black,
+      appBar: AppBar(
+        backgroundColor: black,
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.more_vert_rounded,
+                color: Colors.white,
+              ))
+        ],
+      ),
+    );
   }
 }
