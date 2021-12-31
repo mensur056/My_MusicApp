@@ -29,12 +29,36 @@ class _AlbumPageState extends State<AlbumPage> {
               Container(
                 width: size.width,
                 height: 220,
-                decoration: BoxDecoration(color: primary),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(widget.song['img']),
+                        fit: BoxFit.cover)),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.song['title'],
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.grey,
+                    ),
+                    child: Text('Subscribe'),
+                  )
+                ],
               )
             ],
           ),
           SafeArea(
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
                   onPressed: () {
@@ -44,7 +68,8 @@ class _AlbumPageState extends State<AlbumPage> {
                     Icons.arrow_back,
                     color: Colors.white,
                   ),
-                ), IconButton(
+                ),
+                IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
