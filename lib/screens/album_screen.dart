@@ -173,7 +173,7 @@ class _AlbumPageState extends State<AlbumPage> {
                           children: [
                             Container(
                               width: (size.width - 60) * 0.77,
-                              height: 50,
+
                               child: Text(
                                 "${index+1}  "+songAlbum[index]['title'],
                                 style: TextStyle(color: Colors.white),
@@ -182,7 +182,10 @@ class _AlbumPageState extends State<AlbumPage> {
                             Container(
                               width: (size.width - 60) * 0.23,
                               height: 50,
-                              decoration: BoxDecoration(color: white),
+                              child: Row(children: [Text(
+                               songAlbum[index]['duration'],
+                                style: TextStyle(color: Colors.white),
+                              ),],),
                             )
                           ],
                         ),
