@@ -30,7 +30,7 @@ class _AlbumPageState extends State<AlbumPage> {
             children: [
               Container(
                 width: size.width,
-                height: 220,
+                height: 160,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage(widget.song['img']),
@@ -64,26 +64,31 @@ class _AlbumPageState extends State<AlbumPage> {
                     )
                   ],
                 ),
-              ),SizedBox(height: 30,),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 30.0),
+                  padding: const EdgeInsets.only(left: 20.0),
                   child: Row(
                     children: List.generate(
                       songs.length,
-                          (index) {
+                      (index) {
                         return Padding(
-                          padding: EdgeInsets.only(right: 30),
+                          padding: EdgeInsets.only(right: 20),
                           child: GestureDetector(
-                            onTap: () { Navigator.push(
-                                context,
-                                PageTransition(
-                                    alignment: Alignment.bottomCenter,
-                                    child: AlbumPage(
-                                      song: songs[index],
-                                    ),
-                                    type: PageTransitionType.scale));},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  PageTransition(
+                                      alignment: Alignment.bottomCenter,
+                                      child: AlbumPage(
+                                        song: songs[index],
+                                      ),
+                                      type: PageTransitionType.scale));
+                            },
                             child: Column(
                               children: [
                                 Container(
@@ -113,16 +118,32 @@ class _AlbumPageState extends State<AlbumPage> {
                                   height: 10,
                                 ),
                                 Container(
-                                  child: Text(
-                                    songs[index]['description'],
-                                    maxLines: 1,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:50,right: 50),
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          songs[index]['song_count'],
+                                          maxLines: 1,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        Text(
+                                          songs[index]['date'],
+                                          maxLines: 1,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  width: 180,
+                                  width: size.width - 250,
                                 )
                               ],
                             ),
