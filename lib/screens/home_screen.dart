@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_musicapp/constants.dart';
 import 'package:my_musicapp/json/songs_json.dart';
+import 'package:my_musicapp/screens/album_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int activeMenu1 = 0;
-  int activeMenu2=2;
+  int activeMenu2 = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +112,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Padding(
                           padding: EdgeInsets.only(right: 30),
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  PageTransition(
+                                      alignment: Alignment.bottomCenter,
+                                      child: AlbumPage(
+                                        song: songs[index],
+                                      ),
+                                      type: PageTransitionType.scale));
+                            },
                             child: Column(
                               children: [
                                 Container(
@@ -161,7 +172,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               )
             ],
-          ),SizedBox(height: 12,),
+          ),
+          SizedBox(
+            height: 12,
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -172,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: List.generate(
                       song_type_2.length,
-                          (index) {
+                      (index) {
                         return Padding(
                           padding: const EdgeInsets.only(right: 25.0),
                           child: GestureDetector(
@@ -197,13 +211,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 activeMenu2 == index
                                     ? Container(
-                                  height: 3,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                      BorderRadius.circular(5),
-                                      color: primary),
-                                )
+                                        height: 3,
+                                        width: 30,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            color: primary),
+                                      )
                                     : Container()
                               ],
                             ),
@@ -224,11 +238,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: List.generate(
                       songs.length - 5,
-                          (index) {
+                      (index) {
                         return Padding(
                           padding: EdgeInsets.only(right: 30),
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () { Navigator.push(
+                                context,
+                                PageTransition(
+                                    alignment: Alignment.bottomCenter,
+                                    child: AlbumPage(
+                                      song: songs[index+5],
+                                    ),
+                                    type: PageTransitionType.scale));},
                             child: Column(
                               children: [
                                 Container(
@@ -237,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                          songs[index+5]['img'],
+                                          songs[index + 5]['img'],
                                         ),
                                         fit: BoxFit.cover),
                                     color: Colors.green,
@@ -248,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 18,
                                 ),
                                 Text(
-                                  songs[index+5]['title'],
+                                  songs[index + 5]['title'],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15,
@@ -259,7 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 Container(
                                   child: Text(
-                                    songs[index+5]['description'],
+                                    songs[index + 5]['description'],
                                     maxLines: 1,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
