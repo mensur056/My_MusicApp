@@ -9,6 +9,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int activeMenu1 = 0;
+  int activeMenu2=2;
 
   @override
   Widget build(BuildContext context) {
@@ -170,22 +171,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.only(left: 30.0, top: 20),
                   child: Row(
                     children: List.generate(
-                      song_type_1.length,
+                      song_type_2.length,
                           (index) {
                         return Padding(
                           padding: const EdgeInsets.only(right: 25.0),
                           child: GestureDetector(
                             onTap: () {
                               setState(() {
-                                activeMenu1 = index;
+                                activeMenu2 = index;
                               });
                             },
                             child: Column(
                               children: [
                                 Text(
-                                  song_type_1[index],
+                                  song_type_2[index],
                                   style: TextStyle(
-                                      color: activeMenu1 == index
+                                      color: activeMenu2 == index
                                           ? primary
                                           : Colors.grey,
                                       fontWeight: FontWeight.w600,
@@ -194,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 SizedBox(
                                   height: 2,
                                 ),
-                                activeMenu1 == index
+                                activeMenu2 == index
                                     ? Container(
                                   height: 3,
                                   width: 30,
@@ -236,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                          songs[index]['img'],
+                                          songs[index+5]['img'],
                                         ),
                                         fit: BoxFit.cover),
                                     color: Colors.green,
@@ -247,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 18,
                                 ),
                                 Text(
-                                  songs[index]['title'],
+                                  songs[index+5]['title'],
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15,
@@ -258,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 Container(
                                   child: Text(
-                                    songs[index]['description'],
+                                    songs[index+5]['description'],
                                     maxLines: 1,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
