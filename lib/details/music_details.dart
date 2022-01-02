@@ -46,9 +46,19 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            width: size.width,
-          )
+          Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 50.0, left: 50, top: 20),
+                child: Container(
+                  width: 400,
+                  height: 400,
+                  decoration: BoxDecoration(
+                      color: primary, borderRadius: BorderRadius.circular(20)),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
