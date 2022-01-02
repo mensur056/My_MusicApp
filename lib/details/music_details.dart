@@ -80,7 +80,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
             padding: const EdgeInsets.only(right: 20, left: 20),
             child: Container(
               width: size.width - 80,
-              height: 70,
+              height: 50,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -151,7 +151,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
             ),
           ),
           SizedBox(
-            height: 15,
+            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 40.0, right: 40),
@@ -207,7 +207,23 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.tv,
+                color: primary,
+              ),SizedBox(width: 10,),
+              Text(
+                'Chromecast is ready',
+                style: TextStyle(color: primary),
+              ),
+            ],
+          ),SizedBox(height: 20,)
         ],
       ),
     );
