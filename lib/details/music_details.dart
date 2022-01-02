@@ -54,7 +54,8 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                   width: 400,
                   height: 400,
                   decoration: BoxDecoration(
-                      color: primary, borderRadius: BorderRadius.circular(20)),
+                      image: DecorationImage(image: AssetImage(widget.img),fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(20)),
                 ),
               ),
             ],
