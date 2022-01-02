@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
@@ -26,21 +28,40 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
 
   AudioPlayer? advancedPlayer;
   AudioCache? audioCache;
-  bool isPlayer=true;
+  bool isPlaying = true;
 
   @override
   void initState() {
-
     super.initState();
     initPlayer();
   }
-  initPlayer(){
-    advancedPlayer=new AudioPlayer();
+
+  initPlayer() {
+    advancedPlayer = new AudioPlayer();
+    audioCache = new AudioCache(fixedPlayer: advancedPlayer);
+    playSound(widget.songUrl);
   }
+
+  playSound(localPath) async {
+    await audioCache!.play(localPath);
+  }
+
+  stopSound(localPath) async {
+    Uri audioFile = await audioCache!.load(localPath);
+    await advancedPlayer!.setUrl(audioFile.path);
+    advancedPlayer!.stop();
+  }
+
+  seekSound() async {
+    Uri audioFile = await audioCache!.load(widget.songUrl);
+    await advancedPlayer!.setUrl(audioFile.path);
+    advancedPlayer!.seek(Duration(milliseconds: 2000));
+  }
+
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
+    stopSound(widget.songUrl);
   }
 
   @override
@@ -48,7 +69,8 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
-        backgroundColor: black,elevation: 0,
+        backgroundColor: black,
+        elevation: 0,
         actions: [
           IconButton(
             onPressed: () {},
@@ -148,6 +170,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 setState(() {
                   _SliderValue = value;
                 });
+                seekSound();
               },
             ),
           ),
@@ -196,13 +219,23 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 ),
                 IconButton(
                   iconSize: 50,
-                  onPressed: null,
+                  onPressed: () {
+                    if (isPlaying) {
+                      stopSound(widget.songUrl);
+                      setState(() {
+                        isPlaying=false;
+                      });
+                    }else{playSound(widget.songUrl);
+                    setState(() {
+                      isPlaying=true;
+                    });}
+                  },
                   icon: Container(
                     decoration:
                         BoxDecoration(color: primary, shape: BoxShape.circle),
                     child: Center(
                       child: Icon(
-                        Icons.stop,
+                       isPlaying? Icons.stop: Icons.play_arrow,
                         color: Colors.white,
                         size: 28,
                       ),
@@ -237,13 +270,19 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               Icon(
                 Icons.tv,
                 color: primary,
-              ),SizedBox(width: 10,),
+              ),
+              SizedBox(
+                width: 10,
+              ),
               Text(
                 'Chromecast is ready',
                 style: TextStyle(color: primary),
               ),
             ],
-          ),SizedBox(height: 20,)
+          ),
+          SizedBox(
+            height: 20,
+          )
         ],
       ),
     );
