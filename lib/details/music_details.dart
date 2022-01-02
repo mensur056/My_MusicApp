@@ -54,7 +54,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 padding: const EdgeInsets.only(right: 70.0, left: 70, top: 30),
                 child: Container(
                   width: 360,
-                  height: 360,
+                  height: 300,
                   decoration: BoxDecoration(boxShadow: [
                     BoxShadow(color: widget.color, blurRadius: 50)
                   ], borderRadius: BorderRadius.circular(20)),
@@ -64,7 +64,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 padding: const EdgeInsets.only(right: 70.0, left: 70, top: 30),
                 child: Container(
                   width: 360,
-                  height: 360,
+                  height: 300,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(widget.img), fit: BoxFit.cover),
@@ -117,9 +117,39 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
           SizedBox(
             height: 10,
           ),
-          Slider(max: 200, min: 0, value: _SliderValue, onChanged: (value) {setState(() {
-            _SliderValue=value;
-          });})
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Slider(
+              activeColor: primary,
+              max: 200,
+              min: 0,
+              value: _SliderValue,
+              onChanged: (value) {
+                setState(() {
+                  _SliderValue = value;
+                });
+              },
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 40, right: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '1:50',
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  '4:60',
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
