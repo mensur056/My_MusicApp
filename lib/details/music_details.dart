@@ -21,6 +21,8 @@ class MusicDetailPage extends StatefulWidget {
 }
 
 class _MusicDetailPageState extends State<MusicDetailPage> {
+  double _SliderValue = 20;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,17 +77,19 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
             height: 30,
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 20,left: 20),
+            padding: const EdgeInsets.only(right: 20, left: 20),
             child: Container(
               width: size.width - 80,
               height: 70,
-              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
-                  Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
                         widget.title,
@@ -94,19 +98,26 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                       Container(
                         width: 150,
                         child: Text(
-                          widget.description,maxLines: 1,textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 15,color: Colors.grey),
+                          widget.description,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 15, color: Colors.grey),
                         ),
                       ),
                     ],
-                  ), Icon(
+                  ),
+                  Icon(
                     Icons.more_vert_rounded,
                     color: Colors.white,
                   ),
                 ],
               ),
             ),
-          )
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Slider(value: _SliderValue, onChanged: (value) {})
         ],
       ),
     );
