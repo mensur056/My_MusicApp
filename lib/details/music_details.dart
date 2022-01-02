@@ -175,6 +175,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                   ),
                 ),
                 IconButton(
+                  iconSize: 50,
                   onPressed: null,
                   icon: Container(
                     decoration:
@@ -182,7 +183,8 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                     child: Center(
                       child: Icon(
                         Icons.stop,
-                        color: Colors.red,
+                        color: Colors.white,
+                        size: 28,
                       ),
                     ),
                   ),
