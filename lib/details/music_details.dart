@@ -121,7 +121,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Slider(
               activeColor: primary,
-              max: 200,
+              max: 4.60,
               min: 0,
               value: _SliderValue,
               onChanged: (value) {
@@ -140,7 +140,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '1:50',
+                  '${_SliderValue}',
                   style: TextStyle(color: Colors.white),
                 ),
                 Text(
