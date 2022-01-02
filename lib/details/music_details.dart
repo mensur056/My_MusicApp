@@ -141,12 +141,68 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               children: [
                 Text(
                   '${_SliderValue}',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.grey),
                 ),
                 Text(
                   '4:60',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.grey),
                 )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 40.0, right: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.shuffle,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.skip_previous_outlined,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                ),
+                IconButton(
+                  onPressed: null,
+                  icon: Container(
+                    decoration:
+                        BoxDecoration(color: primary, shape: BoxShape.circle),
+                    child: Center(
+                      child: Icon(
+                        Icons.stop,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.skip_next_outlined,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.repeat_outlined,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                ),
               ],
             ),
           )
