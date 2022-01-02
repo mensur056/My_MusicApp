@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -23,12 +24,31 @@ class MusicDetailPage extends StatefulWidget {
 class _MusicDetailPageState extends State<MusicDetailPage> {
   double _SliderValue = 0;
 
+  AudioPlayer? advancedPlayer;
+  AudioCache? audioCache;
+  bool isPlayer=true;
+
+  @override
+  void initState() {
+
+    super.initState();
+    initPlayer();
+  }
+  initPlayer(){
+    advancedPlayer=new AudioPlayer();
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
-        backgroundColor: black,
+        backgroundColor: black,elevation: 0,
         actions: [
           IconButton(
             onPressed: () {},
