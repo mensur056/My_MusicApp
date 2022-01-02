@@ -49,20 +49,20 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
           Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 50.0, left: 50, top: 20),
+                padding: const EdgeInsets.only(right: 70.0, left: 70, top: 30),
                 child: Container(
-                  width: 400,
-                  height: 400,
+                  width: 360,
+                  height: 360,
                   decoration: BoxDecoration(boxShadow: [
                     BoxShadow(color: widget.color, blurRadius: 50)
                   ], borderRadius: BorderRadius.circular(20)),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 50.0, left: 50, top: 20),
+                padding: const EdgeInsets.only(right: 70.0, left: 70, top: 30),
                 child: Container(
-                  width: 400,
-                  height: 400,
+                  width: 360,
+                  height: 360,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(widget.img), fit: BoxFit.cover),
