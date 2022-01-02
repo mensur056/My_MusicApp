@@ -53,8 +53,19 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                 child: Container(
                   width: 400,
                   height: 400,
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(color: widget.color, blurRadius: 50)
+                  ], borderRadius: BorderRadius.circular(20)),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 50.0, left: 50, top: 20),
+                child: Container(
+                  width: 400,
+                  height: 400,
                   decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage(widget.img),fit: BoxFit.cover),
+                      image: DecorationImage(
+                          image: AssetImage(widget.img), fit: BoxFit.cover),
                       borderRadius: BorderRadius.circular(20)),
                 ),
               ),
