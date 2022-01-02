@@ -32,6 +32,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     initPlayer();
   }
@@ -60,6 +61,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
 
   @override
   void dispose() {
+    // TODO: implement dispose
     super.dispose();
     stopSound(widget.songUrl);
   }
