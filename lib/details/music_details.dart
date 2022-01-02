@@ -21,7 +21,7 @@ class MusicDetailPage extends StatefulWidget {
 }
 
 class _MusicDetailPageState extends State<MusicDetailPage> {
-  double _SliderValue = 20;
+  double _SliderValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,9 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
           SizedBox(
             height: 10,
           ),
-          Slider(value: _SliderValue, onChanged: (value) {})
+          Slider(max: 200, min: 0, value: _SliderValue, onChanged: (value) {setState(() {
+            _SliderValue=value;
+          });})
         ],
       ),
     );
