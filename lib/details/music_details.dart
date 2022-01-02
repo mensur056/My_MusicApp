@@ -29,11 +29,26 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
         backgroundColor: black,
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.more_vert_rounded,
-                color: Colors.white,
-              ))
+            onPressed: () {},
+            icon: Icon(
+              Icons.more_vert_rounded,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+      body: getBody(),
+    );
+  }
+
+  Widget getBody() {
+    var size = MediaQuery.of(context).size;
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            width: size.width,
+          )
         ],
       ),
     );
