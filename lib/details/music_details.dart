@@ -71,6 +71,39 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
               ),
             ],
           ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            width: size.width - 80,
+            height: 70,
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      widget.title,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                    Container(
+                      width: 150,
+                      child: Text(
+                        widget.description,maxLines: 1,textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 15,color: Colors.grey),
+                      ),
+                    ),
+                  ],
+                ), Icon(
+                  Icons.more_vert_rounded,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
