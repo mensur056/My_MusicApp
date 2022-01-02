@@ -83,7 +83,7 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
                   Icons.add,
                   color: Colors.white,
                 ),
-                Column(
+                Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       widget.title,
